@@ -1,0 +1,58 @@
+---
+// Base layout: <head>, <body>, animated background. Wraps every page.
+interface Props {
+  title: string;
+  description?: string;
+  robots?: string;        // 'index,follow' (landing) or 'noindex,nofollow' (role pages)
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = 'Raul Zarate — Production Engineer. Marine Corps mindset applied to reliable, scalable, secure software systems.',
+  robots = 'index,follow',
+  ogImage = '/images/og.jpg',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+
+    {/* OpenGraph — link unfurls on LinkedIn / social */}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <slot name="head" />
+  </head>
+  <body>
+    {/* Background: the reference illumination video itself.
+        Has internal motion CSS can't reproduce — play it directly.
+        Loops infinitely, muted (autoplay requires muted), no controls. */}
+    <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+      <source src="/images/bg-illumination.mp4" type="video/mp4" />
+    </video>
+    <div class="bg-vignette" aria-hidden="true"></div>
+
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

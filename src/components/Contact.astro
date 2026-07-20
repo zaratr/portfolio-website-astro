@@ -1,0 +1,60 @@
+---
+// Contact row — email / github / phone. Inherits theme tokens.
+import Email from './icons/Email.astro';
+import GitHub from './icons/GitHub.astro';
+import Phone from './icons/Phone.astro';
+
+interface Props {
+  email: string;
+  github: string;
+  phone: string;
+}
+const { email, github, phone } = Astro.props;
+---
+
+<nav class="contact" aria-label="Contact">
+  <a href={`mailto:${email}`}>
+    <Email />
+    Email
+  </a>
+  <a href={github} target="_blank" rel="noopener noreferrer">
+    <GitHub />
+    GitHub
+  </a>
+  <a href={`tel:${phone.replace(/[^+\d]/g, '')}`}>
+    <Phone />
+    <span class="phone-full">{phone}</span>
+    <span class="phone-short">Call</span>
+  </a>
+</nav>
+
+<style>
+  .contact {
+    display: flex;
+    gap: 24px;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-hairline);
+    opacity: 0;
+    animation: fadeUp var(--reveal-duration) var(--ease-out-soft) 1.4s forwards;
+  }
+  .contact :global(a) {
+    color: var(--color-text-soft);
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  .contact :global(a:hover) { color: var(--color-accent); }
+  .contact :global(.icon) { width: 15px; height: 15px; }
+  .phone-short { display: none; }
+  .phone-full { display: inline; }
+
+  @media (max-width: 540px) {
+    .contact { gap: 14px; flex-wrap: wrap; }
+    .phone-full { display: none; }
+    .phone-short { display: inline; }
+  }
+</style>
