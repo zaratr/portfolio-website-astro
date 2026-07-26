@@ -293,25 +293,28 @@ const landing = landingEntry.data;
     margin-top: 3px;
   }
 
-  /* Cutout figure — pinned right */
+  /* Cutout figure — anchored to viewport bottom-right, ignoring stage padding.
+     position: fixed lets the figure sit flush at the viewport bottom edge. */
   .figure {
-    align-self: stretch;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
     display: flex;
     align-items: flex-end;
-    justify-content: flex-end;        /* hero hugging right edge */
+    justify-content: flex-end;
     pointer-events: none;
     overflow: hidden;
     opacity: 0;
-    flex: 0 0 auto;
     animation: fadeIn var(--ease-out-soft) 1.2s 0.6s forwards;
   }
   .figure img {
-    /* Hero sized by natural aspect ratio — capped to available stage height
-       but never scaled up beyond natural size (avoids upsizing a small crop).
-       No filter / drop-shadow / mask — image composites cleanly over bg. */
+    /* Hero sized by natural aspect ratio — capped to viewport height minus
+       top padding (88px for navbar) so head doesn't clip. No bottom padding
+       so feet/bottom sits flush at viewport bottom. */
     height: auto;
-    max-height: calc(100vh - 144px);
-    max-width: 100%;
+    max-height: calc(100vh - 88px);
+    max-width: 50vw;
     width: auto;
     object-fit: contain;
   }
