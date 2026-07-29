@@ -1,0 +1,397 @@
+---
+// Dynamic role page — one per role_category.
+// Unlisted (noindex). Click a project card to open a modal with details.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SkillIcon from '../components/SkillIcon.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const roles = await getCollection('roles');
+  return roles.map((entry) => ({
+    params: { role: entry.data.slug },
+    props: { role: entry.data },
+  }));
+}
+
+const { role } = Astro.props;
+const certs = role.certifications || [];
+// Serialize projects for client-side modal use
+const projectsJSON = JSON.stringify(role.projects);
+---
+
+<BaseLayout
+  title={`Raul Zarate — ${role.roleCategory}`}
+  description={role.professionalSummary}
+  robots="noindex,nofollow"
+>
+  <main class="role-page">
+    <div class="role-container">
+      <a href="/" class="back-link">← Home</a>
+
+      <header class="role-header">
+        <h1>Raul Zarate</h1>
+        <p class="role-title">{role.roleCategory}</p>
+      </header>
+
+      <section class="summary">
+        <h2>About</h2>
+        <p set:html={role.professionalSummary}></p>
+      </section>
+
+      {role.skills && role.skills.length > 0 && (
+        <section class="skills">
+          <h2>Skills</h2>
+          <div class="skill-grid">
+            {role.skills.map((skill) => (
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <SkillIcon skill={skill} />
+                </div>
+                <span class="skill-name">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {role.projects.length > 0 ? (
+        <section class="projects">
+          <h2>{role.isRich ? 'Projects' : 'Selected Work'}</h2>
+          <div class="project-grid">
+            {role.projects.map((project, i) => (
+              <article class="project-card" data-index={i} role="button" tabindex="0" aria-label={`View details for ${project.title}`}>
+                <div class="card-image">
+                  <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" class="placeholder-svg">
+                    <rect width="200" height="110" fill="#ece8e1" rx="6"/>
+                    <circle cx="100" cy="45" r="18" fill="none" stroke="#ccc" stroke-width="2"/>
+                    <rect x="70" y="70" width="60" height="6" rx="3" fill="#ddd"/>
+                    <rect x="80" y="82" width="40" height="4" rx="2" fill="#e0e0e0"/>
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h3>{project.title}</h3>
+                  <p class="project-focus">{project.focus}</p>
+                  {project.techStack.length > 0 && (
+                    <ul class="tech-badges">
+                      {project.techStack.slice(0, 4).map((tech) => <li>{tech}</li>)}
+                      {project.techStack.length > 4 && <li class="more">+{project.techStack.length - 4}</li>}
+                    </ul>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <section class="projects empty">
+          <h2>Selected Work</h2>
+          <p>Full project index available on request.</p>
+        </section>
+      )}
+
+      {certs.length > 0 && (
+        <section class="certs">
+          <h2>Certifications</h2>
+          <div class="cert-grid">
+            {certs.map((cert, i) => (
+              <article class="cert-card" data-cert-index={i} role="button" tabindex="0" aria-label={`View details for ${cert.name}`}>
+                <div class="cert-badge">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="20" fill="none" stroke="#b8862b" stroke-width="2"/>
+                    <path d="M24 12 L30 20 L24 36 L18 20 Z" fill="#b8862b" opacity="0.3"/>
+                    <path d="M24 12 L30 20 L24 36 L18 20 Z" fill="none" stroke="#b8862b" stroke-width="1.5"/>
+                    <circle cx="24" cy="20" r="3" fill="#b8862b"/>
+                  </svg>
+                </div>
+                <div class="cert-text">
+                  <span class="cert-name">{cert.name}</span>
+                  {cert.issuer && <span class="cert-issuer-tag">{cert.issuer}{cert.issueDate ? ` · ${cert.issueDate}` : ''}</span>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <footer class="role-footer">
+        <a href="/" class="back-link">← Back to Home</a>
+      </footer>
+    </div>
+  </main>
+
+  {/* Modal — opened when a project or cert card is clicked */}
+  <div class="modal-overlay" id="cardModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div class="modal-image" id="modalImage">
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="placeholder-svg-large">
+          <rect width="400" height="200" fill="#ece8e1" rx="8"/>
+          <circle cx="200" cy="80" r="30" fill="none" stroke="#ccc" stroke-width="2"/>
+          <rect x="140" y="125" width="120" height="8" rx="4" fill="#ddd"/>
+          <rect x="160" y="142" width="80" height="6" rx="3" fill="#e0e0e0"/>
+        </svg>
+      </div>
+      <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <p id="modalFocus"></p>
+        <div id="modalTech"></div>
+        <a id="modalRepo" href="#" target="_blank" rel="noopener noreferrer" class="repo-link">View Repository →</a>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ projectsJSON, certsJSON: JSON.stringify(certs) }}>
+    const projects = JSON.parse(projectsJSON);
+    const certs = JSON.parse(certsJSON);
+    const modal = document.getElementById('cardModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalFocus = document.getElementById('modalFocus');
+    const modalTech = document.getElementById('modalTech');
+    const modalRepo = document.getElementById('modalRepo');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+
+    function openProjectModal(index) {
+      const p = projects[index];
+      if (!p) return;
+      modalImage.innerHTML = '<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%"><rect width="400" height="200" fill="#ece8e1" rx="8"/><circle cx="200" cy="80" r="30" fill="none" stroke="#ccc" stroke-width="2"/></svg>';
+      modalTitle.textContent = p.title;
+      modalFocus.textContent = p.focus;
+      modalTech.innerHTML = '';
+      if (p.techStack && p.techStack.length > 0) {
+        const label = document.createElement('strong');
+        label.textContent = 'Technologies';
+        label.style.cssText = 'display:block;font-size:12px;color:#7a6f64;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em';
+        modalTech.appendChild(label);
+        const ul = document.createElement('ul');
+        ul.className = 'tech-badges';
+        p.techStack.forEach(t => { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+        modalTech.appendChild(ul);
+      }
+      if (p.repoUrl) { modalRepo.href = p.repoUrl; modalRepo.style.display = 'inline-block'; }
+      else { modalRepo.style.display = 'none'; }
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openCertModal(index) {
+      const c = certs[index];
+      if (!c) return;
+      modalImage.innerHTML = '<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%"><rect width="400" height="200" fill="#ece8e1" rx="8"/><circle cx="200" cy="80" r="35" fill="none" stroke="#b8862b" stroke-width="2"/><path d="M200 55 L215 80 L200 115 L185 80 Z" fill="#b8862b" opacity="0.2"/><path d="M200 55 L215 80 L200 115 L185 80 Z" fill="none" stroke="#b8862b" stroke-width="1.5"/></svg>';
+      modalTitle.textContent = c.name;
+      const parts = [];
+      if (c.issuer) parts.push(c.issuer);
+      if (c.issueDate) parts.push(c.issueDate);
+      modalFocus.textContent = parts.join(' · ');
+      modalTech.innerHTML = '';
+      modalRepo.style.display = c.url ? 'inline-block' : 'none';
+      if (c.url) modalRepo.href = c.url;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => openProjectModal(parseInt(card.dataset.index)));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProjectModal(parseInt(card.dataset.index)); }
+      });
+    });
+
+    document.querySelectorAll('.cert-card').forEach(card => {
+      card.addEventListener('click', () => openCertModal(parseInt(card.dataset.certIndex)));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCertModal(parseInt(card.dataset.certIndex)); }
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+  </script>
+
+  <style>
+    .role-page {
+      position: relative;
+      z-index: 5;
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    .role-container { max-width: 720px; margin: 0 auto; }
+    .back-link {
+      color: var(--color-text-soft);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover { color: var(--color-accent); }
+
+    .role-header { margin-bottom: 32px; }
+    .role-header h1 {
+      font-size: 28px; font-weight: 600; letter-spacing: -0.02em;
+      color: var(--color-text); margin-bottom: 4px;
+    }
+    .role-title { font-size: 16px; color: var(--color-accent); font-weight: 500; }
+
+    .narrative { margin-bottom: 32px; }
+    .narrative p { font-size: 15px; line-height: 1.6; color: var(--color-text); }
+
+    .summary h2, .skills h2, .projects h2, .certs h2 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--color-text-dim); margin-bottom: 12px;
+    }
+    .summary { margin-bottom: 32px; }
+    .summary p { font-size: 14px; line-height: 1.6; color: var(--color-text-soft); }
+
+    .skill-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+    .skill-item {
+      display: flex; flex-direction: column; align-items: center; gap: 6px; width: 80px;
+    }
+    .skill-icon { width: 48px; height: 48px; }
+    .skill-icon svg { width: 100%; height: 100%; }
+    .skill-name {
+      font-size: 11px; text-align: center; color: var(--color-text-soft);
+      line-height: 1.3; word-break: break-word;
+    }
+
+    /* === Project cards (click to open modal, hover enlarges) === */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+    .project-card {
+      border: 1px solid var(--color-hairline);
+      border-radius: 14px;
+      background: rgba(255, 252, 246, 0.6);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      border-color: var(--color-accent);
+    }
+    .project-card:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .card-image {
+      width: 100%; height: 130px; overflow: hidden;
+      background: #ece8e1;
+    }
+    .card-image svg { width: 100%; height: 100%; }
+
+    .card-body { padding: 16px; }
+    .card-body h3 { font-size: 15px; font-weight: 600; color: var(--color-text); margin-bottom: 6px; }
+    .project-focus {
+      font-size: 13px; color: var(--color-text-soft); line-height: 1.5; margin-bottom: 10px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    .tech-badges { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-badges li {
+      font-size: 11px; padding: 2px 8px; background: var(--color-accent);
+      color: white; border-radius: 4px;
+    }
+    .tech-badges li.more {
+      background: var(--color-hairline); color: var(--color-text-soft);
+    }
+
+    /* === Cert cards (thin vertical, click for modal) === */
+    .cert-grid { display: flex; flex-direction: column; gap: 10px; }
+    .cert-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border: 1px solid var(--color-hairline);
+      border-radius: 10px;
+      background: rgba(255, 252, 246, 0.6);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .cert-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+      border-color: var(--color-accent);
+    }
+    .cert-card:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+    .cert-badge { width: 32px; height: 32px; flex-shrink: 0; }
+    .cert-badge svg { width: 100%; height: 100%; }
+    .cert-text { display: flex; flex-direction: column; gap: 2px; }
+    .cert-name { font-size: 13px; font-weight: 500; color: var(--color-text); }
+    .cert-issuer-tag {
+      font-size: 11px; color: var(--color-text-dim); line-height: 1.3;
+    }
+
+    /* === Modal === */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      animation: fadeIn 0.2s ease;
+    }
+    .modal-overlay[hidden] { display: none; }
+
+    .modal {
+      position: relative;
+      max-width: 600px; width: 100%;
+      max-height: 85vh; overflow-y: auto;
+      background: #fffcf6;
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      animation: slideUp 0.3s ease;
+    }
+
+    .modal-close {
+      position: absolute; top: 12px; right: 12px;
+      width: 32px; height: 32px;
+      border-radius: 50%; border: none;
+      background: rgba(0,0,0,0.1); color: var(--color-text);
+      font-size: 20px; cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.2s ease;
+      z-index: 1;
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.2); }
+
+    .modal-image { width: 100%; height: 200px; overflow: hidden; border-radius: 16px 16px 0 0; background: #ece8e1; }
+    .modal-image svg { width: 100%; height: 100%; }
+
+    .modal-content { padding: 24px 28px; }
+    .modal-content h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; color: var(--color-text); }
+    .modal-content p { font-size: 14px; line-height: 1.6; color: var(--color-text-soft); margin-bottom: 16px; }
+    .modal-tech { margin-bottom: 16px; }
+    .repo-link {
+      font-size: 14px; color: var(--color-accent); text-decoration: none; font-weight: 500;
+      display: inline-block;
+    }
+    .repo-link:hover { text-decoration: underline; }
+
+    @media (max-width: 540px) {
+      .role-page { padding: 32px 16px 64px; }
+      .role-header h1 { font-size: 24px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .modal { max-height: 90vh; }
+      .modal-content { padding: 20px; }
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</BaseLayout>

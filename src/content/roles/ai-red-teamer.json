@@ -1,0 +1,90 @@
+{
+  "slug": "ai-red-teamer",
+  "roleCategory": "AI Red Teamer",
+  "isRich": false,
+  "professionalSummary": "I align well with AI Red Teamer because I conduct end-to-end adversarial testing of generative AI systems I built mys...",
+  "projects": [
+    {
+      "title": "AI Red Team Lab",
+      "focus": "End-to-end adversarial testing of generative AI; Garak/PyRIT/ART",
+      "techStack": [
+        "Garak",
+        "PyRIT",
+        "ART",
+        "MITRE ATLAS",
+        "OWASP LLM Top 10",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/ai-red-team-lab",
+      "projectKey": "11A"
+    },
+    {
+      "title": "Guardrailed LLM (full-scope offense)",
+      "focus": "Build-and-break guardrails; jailbreak/policy-bypass testing",
+      "techStack": [
+        "NeMo Guardrails",
+        "Jailbreak Testing",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/guardrailed-llm-agent-system",
+      "projectKey": "11B"
+    },
+    {
+      "title": "LLM-as-a-Judge (attack scoring)",
+      "focus": "Scoring layer for adversarial-input success measurement",
+      "techStack": [
+        "LLM-as-a-Judge",
+        "Attack Scoring",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/AI-Observability-Monitoring-Service",
+      "projectKey": "11C"
+    },
+    {
+      "title": "GraphRAG (RAG-poisoning target)",
+      "focus": "RAG-poisoning and retrieval-manipulation attack surface",
+      "techStack": [
+        "GraphRAG",
+        "RAG Poisoning",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/RAG-Vector-Database-Pipeline-Project",
+      "projectKey": "11D"
+    },
+    {
+      "title": "Zero-Trust Gateway (pen-test target)",
+      "focus": "End-to-end pen-testing of own LLM gateway",
+      "techStack": [
+        "Prompt Injection",
+        "Pen Testing",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/Zero-Trust-LLM-Access-Layer",
+      "projectKey": "11E"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Go",
+    "Bash",
+    "End-to-End AI Pen Testing",
+    "Adversarial Testing"
+  ],
+  "certifications": [
+    {
+      "name": "NVIDIA Certified Professional: Gen AI LLMs",
+      "issuer": "NVIDIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA SecAI+ Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

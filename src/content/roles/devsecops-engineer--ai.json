@@ -1,0 +1,96 @@
+{
+  "slug": "devsecops-engineer--ai",
+  "roleCategory": "DevSecOps Engineer - AI",
+  "isRich": false,
+  "professionalSummary": "I align well with DevSecOps Engineer - AI because my Wells Fargo experience established the CI/CD ownership, observab...",
+  "projects": [
+    {
+      "title": "Azure Cloud Security Governance Baseline",
+      "focus": "Policy-as-code governance: zero-trust identity, private endpoints, deny-public-storage",
+      "techStack": [
+        "Terraform",
+        "Azure Policy",
+        "Entra ID",
+        "Management Groups",
+        "NSGs"
+      ],
+      "repoUrl": "https://github.com/zaratr/azure-cloud-security-governance-baseline",
+      "projectKey": "12A"
+    },
+    {
+      "title": "SLSA-L4 Supply Chain (model-artifact lens)",
+      "focus": "Model-artifact and model-weight integrity via keyless signing + WORM",
+      "techStack": [
+        "SLSA L4",
+        "Sigstore/cosign",
+        "WORM",
+        "Model Signing"
+      ],
+      "repoUrl": "https://github.com/zaratr/cloud-landing-zone",
+      "projectKey": "12B"
+    },
+    {
+      "title": "LLM Inference Platform (pipeline security)",
+      "focus": "Securing inference endpoints in deployed ML pipelines",
+      "techStack": [
+        "vLLM",
+        "FastAPI",
+        "Drift Detection",
+        "Endpoint Security"
+      ],
+      "repoUrl": "https://github.com/zaratr/LLM-Interface-Optimization-Service",
+      "projectKey": "12C"
+    },
+    {
+      "title": "Guardrailed LLM (CI/CD release gate)",
+      "focus": "Adversarial red-teaming as a CI/CD release gate",
+      "techStack": [
+        "NeMo Guardrails",
+        "CI/CD Release Gates",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/guardrailed-llm-agent-system",
+      "projectKey": "12D"
+    },
+    {
+      "title": "AI Auto-Remediation (security automation)",
+      "focus": "AI-driven security incident auto-remediation in production",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "eBPF",
+        "Ollama",
+        "GitHub API"
+      ],
+      "repoUrl": "https://github.com/zaratr/platform-reliability-control-plane",
+      "projectKey": "12E"
+    }
+  ],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "CI/CD",
+    "Git"
+  ],
+  "certifications": [
+    {
+      "name": "NVIDIA Certified Professional: Gen AI LLMs",
+      "issuer": "NVIDIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA SecAI+ Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

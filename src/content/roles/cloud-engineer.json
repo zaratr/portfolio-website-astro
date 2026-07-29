@@ -1,0 +1,53 @@
+{
+  "slug": "cloud-engineer",
+  "roleCategory": "Cloud Engineer",
+  "isRich": false,
+  "professionalSummary": "I align well with Cloud Engineer because my Wells Fargo experience built the production-facing engineering habits tha...",
+  "projects": [
+    {
+      "title": "Azure Permit Processing Pipeline",
+      "focus": "eBPF zero-instrumentation kernel-level observability for event-driven microservices with no SDK changes",
+      "techStack": [
+        "eBPF",
+        "bcc",
+        "Prometheus",
+        "Grafana",
+        "Azure Functions",
+        ".NET"
+      ],
+      "repoUrl": "https://github.com/zaratr/azure-permit-processing-pipeline",
+      "projectKey": "1C"
+    },
+    {
+      "title": "eBPF Connection-Lifecycle Tracer",
+      "focus": "Zero-instrumentation TCP connection-health monitoring (opens, resets, established duration) via eBPF kprobes on tcp_v...",
+      "techStack": [
+        "eBPF",
+        "bcc",
+        "Prometheus",
+        "Python",
+        "Zero-Instrumentation Tracing"
+      ],
+      "repoUrl": "https://github.com/zaratr/cloud-native-permit-service",
+      "projectKey": "3B"
+    }
+  ],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "issueDate": "Oct 2024"
+    }
+  ]
+}

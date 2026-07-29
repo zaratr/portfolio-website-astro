@@ -1,0 +1,91 @@
+{
+  "slug": "genai-security-engineer",
+  "roleCategory": "GenAI Security Engineer",
+  "isRich": false,
+  "professionalSummary": "I align well with GenAI Security Engineer because my portfolio covers the full generative-AI security lifecycle — inp...",
+  "projects": [
+    {
+      "title": "AI Security Gateway (Zero-Trust LLM)",
+      "focus": "GenAI request-flow defense: injection detection, output sanitization, per-tenant policy",
+      "techStack": [
+        "FastAPI",
+        "Python",
+        "Policy Engine",
+        "RBAC"
+      ],
+      "repoUrl": "https://github.com/zaratr/Zero-Trust-LLM-Access-Layer",
+      "projectKey": "8A"
+    },
+    {
+      "title": "Guardrailed LLM (GenAI lens)",
+      "focus": "Adversarial testing of generative agents; excessive-agency controls",
+      "techStack": [
+        "NeMo Guardrails",
+        "OWASP LLM06",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/guardrailed-llm-agent-system",
+      "projectKey": "8B"
+    },
+    {
+      "title": "LLM-as-a-Judge (safety/bias eval)",
+      "focus": "GenAI output safety, bias, hallucination/confabulation evaluation",
+      "techStack": [
+        "LLM-as-a-Judge",
+        "Hallucination Detection",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/AI-Observability-Monitoring-Service",
+      "projectKey": "8C"
+    },
+    {
+      "title": "LLM Inference Platform (securing endpoints)",
+      "focus": "Securing GenAI inference endpoints; model-serving integrity",
+      "techStack": [
+        "vLLM",
+        "LoRA",
+        "Speculative Decoding",
+        "FastAPI"
+      ],
+      "repoUrl": "https://github.com/zaratr/LLM-Interface-Optimization-Service",
+      "projectKey": "8D"
+    },
+    {
+      "title": "Agentic IDP (excessive-agency controls)",
+      "focus": "Agentic identity and excessive-agency risk in agentic provisioning systems",
+      "techStack": [
+        "FastAPI",
+        "Agentic CLI",
+        "LLM Provisioning"
+      ],
+      "repoUrl": "https://github.com/zaratr/Internal-Developer-Platform-IDP",
+      "projectKey": "8E"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Go",
+    "C#",
+    ".NET",
+    "Bash",
+    "Prompt Injection Defense",
+    "Excessive Agency Controls"
+  ],
+  "certifications": [
+    {
+      "name": "NVIDIA Certified Professional: Gen AI LLMs",
+      "issuer": "NVIDIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA SecAI+ Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

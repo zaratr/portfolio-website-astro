@@ -1,0 +1,40 @@
+{
+  "slug": "security-engineer",
+  "roleCategory": "Security Engineer",
+  "isRich": false,
+  "professionalSummary": "I align well with Security Engineer with infrastructure or cloud emphasis because my Wells Fargo experience developed...",
+  "projects": [
+    {
+      "title": "Secure Multi‑Account Cloud Landing Zone",
+      "focus": "SLSA Level 4 cryptographic supply chain for IaC artifacts and ML model weights via Sigstore keyless signing and WORM ...",
+      "techStack": [
+        "Bicep",
+        "SLSA Level 4",
+        "Sigstore/cosign",
+        "GitHub Actions",
+        "Azure Key Vault",
+        "WORM Storage"
+      ],
+      "repoUrl": "https://github.com/zaratr/cloud-landing-zone",
+      "projectKey": "3A"
+    }
+  ],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

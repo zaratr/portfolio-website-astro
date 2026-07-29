@@ -1,0 +1,40 @@
+{
+  "slug": "site-reliability-engineer-sre",
+  "roleCategory": "Site Reliability Engineer (SRE)",
+  "isRich": false,
+  "professionalSummary": "I align very strongly with Site Reliability Engineer because the core of my Wells Fargo experience involves supportin...",
+  "projects": [
+    {
+      "title": "Observability & Reliability Platform",
+      "focus": "AI auto-remediation agent reads eBPF traces, correlates with Git commits, and generates rollback PRs before on-call o...",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "eBPF",
+        "Ollama/Gemma",
+        "GitHub API",
+        "LLM Auto-Remediation"
+      ],
+      "repoUrl": "https://github.com/zaratr/platform-reliability-control-plane",
+      "projectKey": "2B"
+    }
+  ],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "issueDate": "Oct 2024"
+    }
+  ]
+}

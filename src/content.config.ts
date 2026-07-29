@@ -47,7 +47,7 @@ const roles = defineCollection({
     slug: z.string(),
     roleCategory: z.string(),
     isRich: z.boolean(),
-    expertNarrative: z.string(),
+    expertNarrative: z.string().optional(),
     professionalSummary: z.string(),
     skills: z.array(z.string()).optional(),
     certifications: z.array(certification).optional(),
