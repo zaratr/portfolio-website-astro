@@ -1,0 +1,80 @@
+{
+  "slug": "llm-security-engineer",
+  "roleCategory": "LLM Security Engineer",
+  "isRich": false,
+  "professionalSummary": "I align well with LLM Security Engineer because my portfolio demonstrates direct, hands-on LLM attack-surface defense...",
+  "projects": [
+    {
+      "title": "AI Security Gateway (Zero-Trust LLM)",
+      "focus": "OWASP LLM01/02/05 defense: prompt-injection detection, PII redaction, output sanitization",
+      "techStack": [
+        "FastAPI",
+        "Python",
+        "PII Masking",
+        "Output Sanitization"
+      ],
+      "repoUrl": "https://github.com/zaratr/Zero-Trust-LLM-Access-Layer",
+      "projectKey": "7A"
+    },
+    {
+      "title": "Guardrailed LLM (LLM-Security lens)",
+      "focus": "Guardrail-bypass testing mapped to OWASP LLM Top 10",
+      "techStack": [
+        "NeMo Guardrails",
+        "OWASP LLM Top 10",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/guardrailed-llm-agent-system",
+      "projectKey": "7B"
+    },
+    {
+      "title": "LLM-as-a-Judge Eval (safety scoring)",
+      "focus": "Safety/bias/policy-compliance scoring of LLM outputs",
+      "techStack": [
+        "LLM-as-a-Judge",
+        "Safety Evaluation",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/AI-Observability-Monitoring-Service",
+      "projectKey": "7C"
+    },
+    {
+      "title": "GraphRAG (RAG-poisoning attack surface)",
+      "focus": "Retrieval-layer internals exposing OWASP LLM08 vector/embedding weaknesses",
+      "techStack": [
+        "GraphRAG",
+        "NetworkX",
+        "Embeddings",
+        "Vector DB"
+      ],
+      "repoUrl": "https://github.com/zaratr/RAG-Vector-Database-Pipeline-Project",
+      "projectKey": "7D"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Go",
+    "C#",
+    ".NET",
+    "Bash",
+    "Prompt Injection Detection",
+    "RAG Poisoning"
+  ],
+  "certifications": [
+    {
+      "name": "NVIDIA Certified Professional: Gen AI LLMs",
+      "issuer": "NVIDIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA SecAI+ Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

@@ -41,9 +41,21 @@ const {
     <slot name="head" />
   </head>
   <body>
-    {/* Background: static circuit image (black traces on gray bg).
-        Video animation deferred until content is locked. */}
-    <div class="bg-circuit" aria-hidden="true"></div>
+    {/* Background: looping muted video (decoded circuit animation).
+        background2.png is the poster / CSS fallback if video can't load. */}
+    <div class="bg-circuit" aria-hidden="true">
+      <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="/images/background2.png"
+      >
+        <source src="/images/ani_background.mp4" type="video/mp4" />
+      </video>
+    </div>
 
     <slot />
   </body>
@@ -86,10 +98,19 @@ const {
     z-index: 0;
     pointer-events: none;
     background-color: #ffffff;
-    background-image: url('/images/bg-circuit.png');
+    background-image: url('/images/background2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  .bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -97,6 +118,8 @@ const {
       animation-duration: 0.01ms !important;
       animation-delay: 0ms !important;
     }
+    /* Hide the animated video — fall back to the static PNG */
+    .bg-video { display: none; }
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }

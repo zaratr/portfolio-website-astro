@@ -1,0 +1,79 @@
+{
+  "slug": "ai-red-team-engineer",
+  "roleCategory": "AI Red Team Engineer",
+  "isRich": false,
+  "professionalSummary": "I align well with AI Red Team Engineer because I build and run the adversarial tooling the role requires against my o...",
+  "projects": [
+    {
+      "title": "AI Red Team Lab",
+      "focus": "Garak/PyRIT scan harness vs. LLM targets; findings mapped to MITRE ATLAS & OWASP LLM Top 10",
+      "techStack": [
+        "Garak",
+        "PyRIT",
+        "MITRE ATLAS",
+        "OWASP LLM Top 10",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/ai-red-team-lab",
+      "projectKey": "9A"
+    },
+    {
+      "title": "Guardrailed LLM (offensive harness)",
+      "focus": "Built the adversarial CI/CD harness that breaks own guardrails",
+      "techStack": [
+        "NeMo Guardrails",
+        "Adversarial CI/CD",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/guardrailed-llm-agent-system",
+      "projectKey": "9B"
+    },
+    {
+      "title": "LLM-as-a-Judge (attack-success scorer)",
+      "focus": "Automated scorer determining if adversarial inputs succeeded",
+      "techStack": [
+        "LLM-as-a-Judge",
+        "Adversarial Scoring",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/AI-Observability-Monitoring-Service",
+      "projectKey": "9C"
+    },
+    {
+      "title": "Zero-Trust Gateway (red-team target)",
+      "focus": "Attacks own defensive gateway to find injection/sanitization failures",
+      "techStack": [
+        "Prompt Injection",
+        "Bypass Testing",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/Zero-Trust-LLM-Access-Layer",
+      "projectKey": "9D"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Go",
+    "Bash",
+    "Adversarial Prompt Engineering",
+    "Jailbreak Testing",
+    "Prompt Injection"
+  ],
+  "certifications": [
+    {
+      "name": "NVIDIA Certified Professional: Gen AI LLMs",
+      "issuer": "NVIDIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA SecAI+ Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

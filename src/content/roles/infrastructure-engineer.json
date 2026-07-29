@@ -1,0 +1,25 @@
+{
+  "slug": "infrastructure-engineer",
+  "roleCategory": "Infrastructure Engineer",
+  "isRich": false,
+  "professionalSummary": "I align well with Infrastructure Engineer because my Wells Fargo experience developed the monitoring discipline, trou...",
+  "projects": [],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "issueDate": "Oct 2024"
+    }
+  ]
+}

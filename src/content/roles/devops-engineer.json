@@ -1,0 +1,30 @@
+{
+  "slug": "devops-engineer",
+  "roleCategory": "DevOps Engineer",
+  "isRich": false,
+  "professionalSummary": "I align strongly with DevOps Engineer because my Wells Fargo experience sits directly between software engineering an...",
+  "projects": [],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "PCPP1 – Certified Professional Python Programmer Level 1",
+      "issuer": "Python Institute",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "issueDate": "Oct 2024"
+    }
+  ]
+}

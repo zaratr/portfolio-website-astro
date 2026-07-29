@@ -1,0 +1,65 @@
+{
+  "slug": "ai-safety-specialist",
+  "roleCategory": "AI Safety Specialist",
+  "isRich": false,
+  "professionalSummary": "I align well with AI Safety Specialist because my portfolio is built around exactly the evaluative, taxonomy-discipli...",
+  "projects": [
+    {
+      "title": "Guardrailed LLM (analyst lens)",
+      "focus": "Generates adversarial prompts/jailbreaks; classifies breakability",
+      "techStack": [
+        "NeMo Guardrails",
+        "Adversarial Prompts",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/guardrailed-llm-agent-system",
+      "projectKey": "10A"
+    },
+    {
+      "title": "LLM-as-a-Judge (safety eval)",
+      "focus": "Evaluates outputs for safety/bias/policy violations",
+      "techStack": [
+        "LLM-as-a-Judge",
+        "Safety/Bias Eval",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/AI-Observability-Monitoring-Service",
+      "projectKey": "10B"
+    },
+    {
+      "title": "GraphRAG (problematic-content review)",
+      "focus": "Reviews retrieval-grounded outputs for problematic content",
+      "techStack": [
+        "GraphRAG",
+        "Content Review",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/RAG-Vector-Database-Pipeline-Project",
+      "projectKey": "10C"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Bash",
+    "Adversarial Prompt Crafting",
+    "Jailbreak Testing",
+    "Edge-Case Scenarios"
+  ],
+  "certifications": [
+    {
+      "name": "NVIDIA Certified Professional: Gen AI LLMs",
+      "issuer": "NVIDIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA SecAI+ Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

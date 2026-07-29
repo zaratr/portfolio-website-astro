@@ -1,0 +1,30 @@
+{
+  "slug": "ml--ai-platform-engineer",
+  "roleCategory": "ML / AI Platform Engineer",
+  "isRich": false,
+  "professionalSummary": "I align effectively with ML / AI Platform Engineer when the role is framed around enterprise systems, data workflows,...",
+  "projects": [],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "PCEI™ – Certified Entry-Level AI Specialist with Python",
+      "issuer": "Python Institute",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "PCPP1 – Certified Professional Python Programmer Level 1",
+      "issuer": "Python Institute",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}

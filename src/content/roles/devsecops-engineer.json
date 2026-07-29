@@ -1,0 +1,42 @@
+{
+  "slug": "devsecops-engineer",
+  "roleCategory": "DevSecOps Engineer",
+  "isRich": false,
+  "professionalSummary": "I align well with DevSecOps Engineer because my Wells Fargo experience took place in a highly regulated financial env...",
+  "projects": [
+    {
+      "title": "Guardrailed LLM with Automated Red Teaming",
+      "focus": "Automated adversarial CI/CD testing for AI agents",
+      "techStack": [
+        "NeMo Guardrails",
+        "CI/CD Red Teaming",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/zaratr/guardrailed-llm-agent-system",
+      "projectKey": "5D"
+    }
+  ],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "CompTIA Security+ ce Certification",
+      "issuer": "CompTIA",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "issueDate": "Oct 2024"
+    }
+  ]
+}

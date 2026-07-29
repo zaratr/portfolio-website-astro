@@ -1,0 +1,57 @@
+{
+  "slug": "data-engineer",
+  "roleCategory": "Data Engineer",
+  "isRich": false,
+  "professionalSummary": "I align credibly with Data Engineer because my Wells Fargo experience includes direct exposure to Spark ETL, enterpri...",
+  "projects": [
+    {
+      "title": "Iceberg Zero-ETL & Spark Data Pipeline",
+      "focus": "Zero-ETL architecture and DSPy unstructured processing",
+      "techStack": [
+        "Apache Iceberg",
+        "PySpark",
+        "DSPy",
+        "Ollama (Gemma)",
+        "Zero-ETL"
+      ],
+      "repoUrl": "https://github.com/zaratr/end-to-end-spark-delta-pipeline",
+      "projectKey": "4A"
+    },
+    {
+      "title": "Real‑Time Analytics Pipeline",
+      "focus": "Zero-ETL architecture using Apache Iceberg open table format; compute engines query object storage directly without d...",
+      "techStack": [
+        "Apache Iceberg 1.5",
+        "Apache Spark 3.5",
+        "MinIO (S3)",
+        "Zero-ETL",
+        "Scala"
+      ],
+      "repoUrl": "https://github.com/zaratr/Real-Time-Fraud-Detection-Pipeline",
+      "projectKey": "4B"
+    }
+  ],
+  "skills": [
+    "Go",
+    "Python",
+    "C#",
+    ".NET",
+    "Bash",
+    "Shell Scripting",
+    "Splunk",
+    "Prometheus",
+    "Grafana"
+  ],
+  "certifications": [
+    {
+      "name": "PCEI™ – Certified Entry-Level AI Specialist with Python",
+      "issuer": "Python Institute",
+      "issueDate": "Jun 2026"
+    },
+    {
+      "name": "PCPP1 – Certified Professional Python Programmer Level 1",
+      "issuer": "Python Institute",
+      "issueDate": "Jun 2026"
+    }
+  ]
+}
